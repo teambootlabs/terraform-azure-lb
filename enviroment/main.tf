@@ -4,7 +4,7 @@ data "azurerm_resource_group" "terraboot" {
 
 resource "azurerm_management_lock" "rglock" {
   name       = "resource-group-level"
-  scope      = data.azurerm_resource_group.terraboot.id
+  scope      = data.azurerm_resource_group.terrabootlabs.id
   lock_level = "ReadOnly"
   notes      = "This Resource Group is Read-Only"
 }
@@ -17,7 +17,7 @@ data "azurerm_subnet" "terrabootlabs1" {
 resource "azurerm_lb" "loadbalancer" {
 
   name                = var.name
-  resource_group_name = data.azurerm_resource_group.terraboot.id
+  resource_group_name = data.azurerm_resource_group.terrabootlabs.id
   location            = var.location
   sku                 = var.sku
   sku_tier            = var.sku_tier

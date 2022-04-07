@@ -14,7 +14,7 @@ module "lbmodule" {
 
   name                                                  = var.name
   location                                              = var.location
-  resource_group_name                                   = data.azurerm_resource_group.terraboot.id
+  resource_group_name                                   = data.azurerm_resource_group.terrabootlabs.id
   sku                                                   = var.sku
   sku_tier                                              = var.sku_tier
   ip_subnet_id                                          = data.azurerm_subnet.terrabootlabs1.id
