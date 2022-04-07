@@ -9,7 +9,7 @@ variable "resource_group_name" {
   type        = string
 }
 
-variable "region" {
+variable "location" {
   description = "Specifies the supported Azure Region where the Load Balancer should be created."
   type        = string
 }

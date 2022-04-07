@@ -1,8 +1,20 @@
-resource "azurerm_lb" "lodebalancer" {
+resource "azurerm_resource_group" "azure_rsg" {
+  name     = "resource-group"
+  location = var.location
+}
+
+resource "azurerm_management_lock" "rglock" {
+  name       = "resource-group-level"
+  scope      = azurerm_resource_group.azure_rsg.id
+  lock_level = "ReadOnly"
+  notes      = "This Resource Group is Read-Only"
+}
+
+resource "azurerm_lb" "loadbalancer" {
 
   name                = var.name
-  resource_group_name = var.resource_group_name
-  location            = var.region
+  resource_group_name = azurerm_resource_group.azure_rsg.id
+  location            = var.location
   sku                 = var.sku
   sku_tier            = var.sku_tier
   frontend_ip_configuration {
