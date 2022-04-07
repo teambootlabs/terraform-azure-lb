@@ -22,7 +22,7 @@ resource "azurerm_lb" "loadbalancer" {
   sku                 = var.sku
   sku_tier            = var.sku_tier
   frontend_ip_configuration {
-    name                                               = var.ip_name
+    name = var.ip_name
     // availability_zone                                  = var.ip_availability_zone
     subnet_id                                          = data.azurerm_subnet.terrabootlabs1.id
     gateway_load_balancer_frontend_ip_configuration_id = var.id_gateway_load_balancer_frontend_ip_configuration_id
