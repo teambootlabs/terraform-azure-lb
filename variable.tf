@@ -4,6 +4,7 @@ variable "name" {
   type        = string
 }
 
+
 variable "resource_group_name" {
   description = "The name of the Resource Group in which to create the Load Balancer."
   type        = string
